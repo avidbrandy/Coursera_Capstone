@@ -1,0 +1,64 @@
+Week 5:
+
+In this week, you will continue working on your capstone project. Please remember by the end of this week, you will need to submit the following:
+
+A full report consisting of all of the following components (15 marks):
+
+1. Introduction where you discuss the business problem and who would be interested in this project.
+2. Data where you describe the data that will be used to solve the problem and the source of the data.
+3. Methodology section which represents the main component of the report where you discuss and describe any exploratory data analysis that you did, any inferential statistical testing that you performed, if any, and what machine learnings were used and why.
+4. Results section where you discuss the results.
+5. Discussion section where you discuss any observations you noted and any recommendations you can make based on the results.
+6. Conclusion section where you conclude the report.
+
+
+1.
+
+For this project, we will be attempting to identify where in Seattle we should open a new restaurant serving Turkish food.
+
+The restaurant business is highly competitive. Most restaurants close their doors within the first few years, and location is one of the most important factors.
+
+Though 2020 has made this problem far worse and redefined the issue, we will be conducting this project without consideration for the lockdowns. The largest barrier to this project is the limit on API calls with Foursquare, so we will be using a very small geographical area for this project, limiting ourselves to only downtown Seattle
+
+This information would be useful to anyone looking to open a new restaurant of this type in Seattle. The methodology though could be expanded and used for any new business in any locality where the location would benefit the success of the business.
+
+
+2.
+
+Data Being Used:
+
+    FourSquare Data
+        Names of Restaurant Categories
+        List of Restaurants of these Types in Seattle
+        Details of Each of These Restaurants
+            Location
+    Yelp Data
+        Number of Reviews
+
+
+3.
+
+To solve this question, we will be using FourSquare to identify similar restaurants to ours in each area of the city to get an idea about where the greatest potential for a new restaurant is.
+
+This will be done by first identifying the categories of similar restaurants to ours. We will then identify where these restaurants are located and group them into clusters with KMeans.
+
+We will then use the package Selenium to scrape Yelp for the number of reviews per restaurant. We will combine this with our cluster data to calculate the average # of reviews per cluster, to get an idea of traffic in each area and identify where the greatest number of customers are relative to the number of competitors.
+
+
+4.
+
+Our project results in the following data, showing the average # of reviews for a restaurant in each of our 6 clusters.
+
+[400, 181, 294, 292, 120, 142]
+
+In this project, we see that restaurants in cluster zero have far more reviews than others on average. This shows us distinctly that these restaurants likely receive far more traffic than those in the other clusters.
+
+
+5.
+
+Looking only at the results of our data, one could accidentally conclude that cluster [0] is the best place to open a restaurant due to traffic. However, this would be premature. Looking at our map, we see that cluster [0] is the immediate downtown vicinity. There are obviously other factors that need to be considered for an informed decision, such as rental and insurance costs for starters. This project provides a piece of the information though that should be evaluated when making a decision like this.
+
+
+6.
+
+This methodology is simplistic. As such, it provides us with only a limited perspective. To verify or refute our findings, it would best to develop a much more in-depth model that further refines our sorting of locations, as well as factors in other aspects such as rental costs, crime rate, and income of customers. This would be far more time intensive and essentially become a commercial product, so they are beyond the scope of our project.
